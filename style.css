@@ -1,127 +1,169 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
 
 *{
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 body{
+    font-family: 'Outfit', sans-serif;
     background-color: hsl(217, 54%, 11%);
     height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Outfit', sans-serif;
+    position: relative;
 }
-.container{
-    width: 250px;
+main{
+    max-width: 300px;
+    min-height: 400px;
     background-color: hsl(216, 50%, 16%);
+    margin: 50px auto 70px;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.image img{
-    width: 230px;
-    margin: 10px 10px 0 10px;
-    padding: 5px 5px 0 5px;
+main .image{
+    position: relative;
+}
+main .image img{
+    max-width: 100%;
+    width: 270px;
+    height: 270px;
+    margin: 15px;
     border-radius: 10px;
+    
 }
-.des{
-    margin: 10px 15px;
-    border-bottom: 1px hsl(215, 32%, 27%) solid;
+main .image::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(images/icon-view.svg);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    z-index: 5;
+    opacity: 0;
 }
-.des h3{
+main .image::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 270px;
+    height: 270px;
+    background-color: hsl(178deg 100% 50% / 50%);
+    z-index: 1;
+    border-radius: 10px;
+    opacity: 0;
+}
+main .image:hover{
+    cursor: pointer;
+}
+main .image:hover::before{
+    opacity: 1;
+}
+main .image:hover::after{
+    opacity: 1;
+}
+main .des{
+  margin: 0 20px;
+  border-bottom: 1px hsl(215, 32%, 27%) solid;
+}
+main .des h3{
     color: #fff;
     font-weight: 600;
     font-size: 18px;
     padding-bottom: 10px;
 }
-.des p{
+main .des h3:hover{
+    color: hsl(178, 100%, 50%);
+}
+main .des p{
     color: hsl(215, 51%, 70%);
     margin-bottom: 10px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 300;
+    line-height: 1.5;
 }
-.price{
+main .des .price{
     padding-bottom: 10px;
     display: flex;
-    
+    justify-content: space-between;
+    align-items: center;
 }
-.price p{
+main .des .price .img1{
+    width: 8px;
+    height: 12px;
+    position: relative;
+    top: 2px;
+}
+main .des .price .eth{
     display: inline;
-}
-.price .eth{
     color: hsl(178, 100%, 50%);
     font-size: 11px;
     font-weight: 400;
-}
-.price .img1{
-    width: 8px;
-    margin: 0 5px 10px 0;
-}
-.price .img2{
+    margin-left: 3px;
+}   
+main .des .price .img2{
     width: 11px;
+    height: 11px;
+    position: relative;
+    top: 2px;
 }
-.price .days{
-    color: hsl(215, 51%, 70%);
-    font-size: 11px;
-   
-}
-.price .right{
+main .des .price .days{
     display: inline;
-    padding-left: 50px;
+    color: hsl(215, 51%, 70%);
+    font-size: 11px; 
 }
-
-.name img{
-    width: 25px;
-    border: #fff 1px solid;
-    border-radius: 50%;
-}
-.name{
+.name {
     font-size: 11px;
     display: flex;
     justify-content: space-between;
-    margin: 15px ;
-} 
-.name p{
+    margin: 15px 0;
+}
+main .name img{
+    width: 25px;
+    height: 25px;
+    border: #fff 1px solid;
+    border-radius: 50%;
+    display: inline;
+    margin-right: 20px;
+}
+main .name p{
     color: hsl(215, 51%, 70%);
     display: inline;
     margin-right: 60px;
     margin-top: 5px;
+    margin-left: 5px;
 }
 .name p span{
     color: #fff;
 }
-
+.footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+}
+.footer a{
+    color: hsl(215, 51%, 70%);
+}
 @media only screen and (max-width: 628px){
     .container{
-        width: 75%;
         height: 90%;
-        padding: 10px 20px 0  20px;
-        margin-bottom: 30px;
+        margin: auto;
     }
-    .image img{
-        width: 95%;
-        max-height: 40%;
-    }
-    .des p{
-        font-size: 20px;
-    }
-    .price .eth{
-        font-size: 15px;
-    }
-    .price .days{
-        font-size: 15px;
-    }
-    .name p{
-        font-size: medium;
-        margin-right: 25%;
-    }
-    .name img{
+    main .name img{
         width: 30px;
+       
     }
-    .price .img1{
-        width: 3%;
-    }
-    .price .img2{
-        width: 17%;
+    main .name p{
+        font-size: 15px;
+        margin-left: 0;
     }
 }
